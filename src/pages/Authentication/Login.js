@@ -7,7 +7,7 @@ import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
 // Redux
 import { connect } from "react-redux"
 import { useDispatch, useSelector } from "react-redux"
-import { withRouter, Link } from "react-router-dom"
+import { withRouter, Link, useHistory } from "react-router-dom"
 
 // slice
 import { loginUser } from "../../store/slices/authSlice"
@@ -21,6 +21,7 @@ import logoSm from "../../assets/images/logo-sm.png"
 const Login = props => {
   // initialise the dispatcher
   const dispatch = useDispatch()
+  const history = useHistory()
   // handleValidSubmit
   const handleValidSubmit = (event, values) => {
     const payload = {
@@ -34,8 +35,10 @@ const Login = props => {
     dispatch(loginUser(payload))
     .unwrap()
     .then(() => {
-      props.history.push("/");
-      window.location.reload();
+      // props.history.push("/dashboard");
+      // history.push("/dashboard")
+      // window.location.reload();
+      window.location.href = "/dashboard"
     })
     .catch(() => {
       // setLoading(false);
