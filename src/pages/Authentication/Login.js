@@ -1,26 +1,45 @@
-import PropTypes from 'prop-types'
-import MetaTags from 'react-meta-tags';
+import PropTypes from "prop-types"
+import MetaTags from "react-meta-tags"
 import React from "react"
 
 import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
 
 // Redux
 import { connect } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { withRouter, Link } from "react-router-dom"
+
+// slice
+import { loginUser } from "../../store/slices/authSlice"
 
 // availity-reactstrap-validation
 import { AvForm, AvField } from "availity-reactstrap-validation"
 
-// actions
-// import { loginUser, apiError } from "../../store/actions"
-
 // import images
-import logoSm from "../../assets/images/logo-sm.png";
+import logoSm from "../../assets/images/logo-sm.png"
 
 const Login = props => {
+  // initialise the dispatcher
+  const dispatch = useDispatch()
   // handleValidSubmit
   const handleValidSubmit = (event, values) => {
-    // props.loginUser(values, props.history)
+    const payload = {
+      ...values,
+      deviceInfo: {
+        deviceType: "android",
+        firebaseId: "wertyfugihojk",
+      },
+      isAdmin: 1,
+    }
+    dispatch(loginUser(payload))
+    .unwrap()
+    .then(() => {
+      props.history.push("/");
+      window.location.reload();
+    })
+    .catch(() => {
+      // setLoading(false);
+    });
   }
 
   return (
@@ -40,12 +59,10 @@ const Login = props => {
               <Card className="overflow-hidden">
                 <div className="bg-primary">
                   <div className="text-primary text-center p-4">
-                    <h5 className="text-white font-size-20">
-                      Welcome Back !
-                        </h5>
+                    <h5 className="text-white font-size-20">Welcome Back !</h5>
                     <p className="text-white-50">
                       Sign in to continue to Veltrix.
-                        </p>
+                    </p>
                     <Link to="/" className="logo logo-admin">
                       <img src={logoSm} height="24" alt="logo" />
                     </Link>
@@ -90,8 +107,17 @@ const Login = props => {
                       <Row className="mb-3">
                         <Col sm={6}>
                           <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="customControlInline" />
-                            <label className="form-check-label" htmlFor="customControlInline">Remember me</label>
+                            <input
+                              type="checkbox"
+                              className="form-check-input"
+                              id="customControlInline"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="customControlInline"
+                            >
+                              Remember me
+                            </label>
                           </div>
                         </Col>
                         <Col sm={6} className="text-end">
@@ -100,10 +126,9 @@ const Login = props => {
                             type="submit"
                           >
                             Log In
-                              </button>
+                          </button>
                         </Col>
                       </Row>
-                      
                     </AvForm>
                   </div>
                 </CardBody>
@@ -111,17 +136,15 @@ const Login = props => {
               <div className="text-center">
                 <p>
                   Don&#39;t have an account ?{" "}
-                  <Link
-                    to="register"
-                    className="fw-medium text-primary"
-                  >
+                  <Link to="register" className="fw-medium text-primary">
                     {" "}
                     Signup now{" "}
                   </Link>{" "}
                 </p>
                 <p>
                   © {new Date().getFullYear()} Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Payluk Technologies
+                  <i className="mdi mdi-heart text-danger" /> by Payluk
+                  Technologies
                 </p>
               </div>
             </Col>

@@ -5,7 +5,7 @@ const registerUser = async (payload) => {
 }
 
 const loginUser = async (payload) => {
-  return await apiClient.post('/login', payload);
+  return await apiClient.post('/auth/login', payload);
 }
 
 const AuthService = {

@@ -10,7 +10,8 @@ const authorizationHeader = () => {
 }
 
 export const apiClient = axios.create({
-  baseURL: process.env.BACKEND_API_URL,
+  // baseURL: process.env.BACKEND_API_URL,
+  baseURL: "http://170.187.159.84:3001/api/v1",
   headers: authorizationHeader(),
 })
 
