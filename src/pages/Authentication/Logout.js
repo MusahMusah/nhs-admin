@@ -1,21 +1,34 @@
-// import PropTypes from 'prop-types'
-// import React, { useEffect } from "react"
-// import { connect } from "react-redux"
-// import { withRouter } from "react-router-dom"
+import PropTypes from "prop-types"
+import React, { useEffect } from "react"
+import {useHistory,Link} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
+import { logoutUser } from "../../store/slices/authSlice"
 
-// import { logoutUser } from "../../store/actions"
+const Logout = props => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  // useEffect(() => {
+  //   props.logoutUser(props.history)
+  // })
+  useEffect(() => {
+    dispatch(logoutUser())
+      .unwrap()
+      .then(() => {
+        localStorage.clear()
+        history.push("/login")
+      })
+      .catch(() => {
+        history.push("/login")
+      })
+  }, [dispatch])
 
-// const Logout = props => {
-//   useEffect(() => {
-//     props.logoutUser(props.history)
-//   })
+  return <></>
+}
 
-//   return <></>
-// }
+Logout.propTypes = {
+  history: PropTypes.object,
+}
 
-// Logout.propTypes = {
-//   history: PropTypes.object,
-//   logoutUser: PropTypes.func
-// }
-
-// export default withRouter(connect(null, { logoutUser })(Logout))
+export default withRouter(connect(null)(Logout))

@@ -214,12 +214,12 @@ Header.propTypes = {
 
 const mapStatetoProps = state => {
   const {
-    layoutType,
+    // layoutType,
     showRightSidebar,
     leftMenu,
     leftSideBarType,
   } = state.Layout
-  return { layoutType, showRightSidebar, leftMenu, leftSideBarType }
+  return { showRightSidebar, leftMenu, leftSideBarType }
 }
 
 export default connect(mapStatetoProps, {
