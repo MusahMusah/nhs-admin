@@ -80,10 +80,10 @@ const SidebarContent = props => {
           }
         }
       }
-      scrollElement(item);
+      scrollElement(item)
       return false
     }
-    scrollElement(item);
+    scrollElement(item)
     return false
   }
 
@@ -92,94 +92,103 @@ const SidebarContent = props => {
       <SimpleBar style={{ maxHeight: "100%" }} ref={ref}>
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
-            <li className="menu-title">{props.t("Main")} </li>
+            <li className="menu-title">{props.t("User Management")} </li>
             <li>
               <Link to="/dashboard" className="waves-effect">
                 <i className="ti-home"></i>
-                <span className="badge rounded-pill bg-primary float-end">2</span>
+                <span className="badge rounded-pill bg-primary float-end">
+                  2
+                </span>
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
 
             <li>
-              <Link to="/" className=" waves-effect">
+              <Link to="/users" className=" waves-effect">
                 <i className="ti-user"></i>
                 <span>{props.t("Users")}</span>
               </Link>
             </li>
 
-            <li className="menu-title">{props.t("Components")}</li>
-
+            <li className="menu-title">{props.t("Post Management")}</li>
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-package"></i>
-                <span>{props.t("UI Elements")}</span>
+                <span>{props.t("Posts")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/">{props.t("Alerts")}</Link>
+                  <Link to="/">{props.t("All Posts")}</Link>
                 </li>
                 <li>
-                  <Link to="/">{props.t("Buttons")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Cards")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Carousel")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Dropdowns")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Grid")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Images")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Lightbox")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Modals")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Range Slider")}</Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    {props.t("Session Timeout")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Progress Bars")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Sweet-Alert")}</Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    {props.t("Tabs & Accordions")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Typography")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Video")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("General")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Colors")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("Rating")}</Link>
+                  <Link to="/">{props.t("Sponsored Post")}</Link>
                 </li>
               </ul>
             </li>
 
+            <li className="menu-title">{props.t("Directories")}</li>
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="ti-package"></i>
+                <span>{props.t("Business Directories")}</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="false">
+                <li>
+                  <Link to="/">{props.t("All Directories")}</Link>
+                </li>
+                <li>
+                  <Link to="/">{props.t("User Directory")}</Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className="menu-title">{props.t("Golds Management")}</li>
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="ti-package"></i>
+                <span>{props.t("Golds")}</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="false">
+                <li>
+                  <Link to="/">{props.t("Gold Transactions")}</Link>
+                </li>
+                <li>
+                  <Link to="/">{props.t("User Gold Transactions")}</Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className="menu-title">{props.t("Wallet Management")}</li>
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="ti-package"></i>
+                <span>{props.t("Wallets")}</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="false">
+                <li>
+                  <Link to="/">{props.t("All Transactions")}</Link>
+                </li>
+                <li>
+                  <Link to="/">{props.t("User Transactions")}</Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className="menu-title">{props.t("Settings")}</li>
+            <li>
+              <Link to="/" className=" waves-effect">
+                <i className="ti-user"></i>
+                <span>{props.t("General Settings")}</span>
+              </Link>
+            </li>
+
+            <li className="menu-title">{props.t("Reports")}</li>
+            <li>
+              <Link to="/" className=" waves-effect">
+                <i className="ti-user"></i>
+                <span>{props.t("All Reports")}</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </SimpleBar>
