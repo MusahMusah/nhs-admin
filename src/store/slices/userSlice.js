@@ -5,10 +5,7 @@ export const getAllUsers = createAsyncThunk(
   "users/allUsers",
   async (_, thunkAPI) => {
     try {
-      return await userService.fetchAllUsers()
-                              .then((response) => {
-                                return response.data
-                              })
+      return await userService.fetchAllUsers().then((response) => { return response.data.success.data })
     } catch (error) {
       const message =
         (error.response &&
@@ -26,13 +23,18 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     users: [],
+    loading: false,
   },
   extraReducers: builder => {
+    builder.addCase(getAllUsers.pending, (state, action) => {
+      state.loading = true
+    })
+
     builder.addCase(getAllUsers.fulfilled, (state, action) => {
       state.users = action.payload
+      state.loading = false
     })
   }
 })
 
-const { reducer } = userSlice
-export default reducer
+export default userSlice.reducer

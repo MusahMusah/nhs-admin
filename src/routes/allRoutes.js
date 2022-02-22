@@ -12,6 +12,11 @@ import Logout from "../pages/Authentication/Logout"
 
 // Users
 import Users from "../pages/Users"
+import Posts from "../pages/Posts"
+import sponsoredPosts from "../pages/Posts/sponsored"
+import Directories from "../pages/Directories/index"
+import Golds from "../pages/Golds"
+import Wallets from "../pages/Wallets"
 
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
@@ -21,6 +26,11 @@ const userRoutes = [
 
   // Users 
   { path: "/users", component: Users },
+  { path: "/posts", component: Posts },
+  { path: "/posts/sponsored", component: sponsoredPosts },
+  { path: "/directories", component: Directories },
+  { path: "/golds", component: Golds },
+  { path: "/wallets", component: Wallets },
 
   // // //profile
   // { path: "/profile", component: UserProfile },

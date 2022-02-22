@@ -118,60 +118,42 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/">{props.t("All Posts")}</Link>
+                  <Link to="/posts">{props.t("All Posts")}</Link>
                 </li>
                 <li>
-                  <Link to="/">{props.t("Sponsored Post")}</Link>
+                  <Link to="/posts/sponsored">{props.t("Sponsored Post")}</Link>
                 </li>
               </ul>
             </li>
 
             <li className="menu-title">{props.t("Directories")}</li>
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-package"></i>
-                <span>{props.t("Business Directories")}</span>
+              <Link to="/directories">
+                <i className="ti-user"></i>
+                <span>
+                  {props.t("Directories")}
+                </span>
               </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/">{props.t("All Directories")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("User Directory")}</Link>
-                </li>
-              </ul>
             </li>
 
             <li className="menu-title">{props.t("Golds Management")}</li>
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-package"></i>
-                <span>{props.t("Golds")}</span>
+              <Link to="/golds">
+                <i className="ti-user"></i>
+                <span>
+                  {props.t("Golds")}
+                </span>
               </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/">{props.t("Gold Transactions")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("User Gold Transactions")}</Link>
-                </li>
-              </ul>
             </li>
 
             <li className="menu-title">{props.t("Wallet Management")}</li>
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-package"></i>
-                <span>{props.t("Wallets")}</span>
+              <Link to="/wallets">
+                <i className="ti-user"></i>
+                <span>
+                  {props.t("Wallets")}
+                </span>
               </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/">{props.t("All Transactions")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{props.t("User Transactions")}</Link>
-                </li>
-              </ul>
             </li>
 
             <li className="menu-title">{props.t("Settings")}</li>
@@ -182,13 +164,13 @@ const SidebarContent = props => {
               </Link>
             </li>
 
-            <li className="menu-title">{props.t("Reports")}</li>
+            {/* <li className="menu-title">{props.t("Reports")}</li>
             <li>
               <Link to="/" className=" waves-effect">
                 <i className="ti-user"></i>
                 <span>{props.t("All Reports")}</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </SimpleBar>
