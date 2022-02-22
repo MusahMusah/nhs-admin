@@ -112,18 +112,12 @@ const SidebarContent = props => {
 
             <li className="menu-title">{props.t("Post Management")}</li>
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-package"></i>
-                <span>{props.t("Posts")}</span>
+              <Link to="/posts">
+                <i className="ti-user"></i>
+                <span>
+                  {props.t("Posts")}
+                </span>
               </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/posts">{props.t("All Posts")}</Link>
-                </li>
-                <li>
-                  <Link to="/posts/sponsored">{props.t("Sponsored Post")}</Link>
-                </li>
-              </ul>
             </li>
 
             <li className="menu-title">{props.t("Directories")}</li>

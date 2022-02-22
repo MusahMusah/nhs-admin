@@ -4,12 +4,13 @@ const fetchAllPosts = async () => {
   return await apiClient.get('/admin/posts/all');
 }
 
-const fetchAllSponsoredPosts = async () => { 
-  return await apiClient.get('/admin/posts/sponsored');
+const fetchAllSponsoredPosts = async (payload) => { 
+  return await apiClient.get(`/admin/posts/sponsored/${payload}`);
 }
 
 const postService = {
   fetchAllPosts,
+  fetchAllSponsoredPosts,
   fetchAllSponsoredPosts,
 }
 

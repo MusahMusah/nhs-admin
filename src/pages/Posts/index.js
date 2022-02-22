@@ -1,5 +1,6 @@
 import React from "react"
 import MetaTags from "react-meta-tags"
+import { Link } from "react-router-dom"
 import { MDBDataTable } from "mdbreact"
 import { Row, Col, Card, CardBody, CardText, CardImg, Button } from "reactstrap"
 
@@ -32,6 +33,7 @@ const Posts = () => {
     let postsData = []
     // add edit single posts for posts datatable
     posts.map((post, index) => {
+      const url = `/posts/${post.user.id}`
       post.user = (
         <Row xs="auto">
           <Col className="mx-auto">
@@ -54,13 +56,11 @@ const Posts = () => {
             <a href={`/posts/delete/${posts.id}`} className="mr-2">
               <i className="fa fa-trash text-danger" />
             </a> */}
-          <Button
-            onClick={() => poststatusToggle(posts[index].id)}
-            color="primary"
-            className="btn btn-primary waves-effect"
-          >
-            View
-          </Button>{" "}
+          <Link to={url}>
+            <Button color="primary" className="btn btn-primary waves-effect">
+              View
+            </Button>{" "}
+          </Link>
         </div>
       )
       postsData.push(post)

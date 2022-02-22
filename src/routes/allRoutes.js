@@ -13,6 +13,7 @@ import Logout from "../pages/Authentication/Logout"
 // Users
 import Users from "../pages/Users"
 import Posts from "../pages/Posts"
+import SinglePost from "../pages/Posts/SinglePost"
 import sponsoredPosts from "../pages/Posts/sponsored"
 import Directories from "../pages/Directories/index"
 import Golds from "../pages/Golds"
@@ -28,6 +29,7 @@ const userRoutes = [
   // Users 
   { path: "/users", component: Users },
   { path: "/posts", component: Posts },
+  { path: "/posts/:uuid", component: SinglePost },  // posts/:uuid
   { path: "/posts/sponsored", component: sponsoredPosts },
   { path: "/directories", component: Directories },
   { path: "/golds", component: Golds },
