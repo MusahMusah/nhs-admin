@@ -17,6 +17,7 @@ import sponsoredPosts from "../pages/Posts/sponsored"
 import Directories from "../pages/Directories/index"
 import Golds from "../pages/Golds"
 import Wallets from "../pages/Wallets"
+import Settings from "../pages/Settings"
 
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
@@ -32,8 +33,8 @@ const userRoutes = [
   { path: "/golds", component: Golds },
   { path: "/wallets", component: Wallets },
 
-  // // //profile
-  // { path: "/profile", component: UserProfile },
+  // settings
+  { path: "/settings", component: Settings },
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
