@@ -1,27 +1,41 @@
-import React from "react";
-import MetaTags from 'react-meta-tags';
-import { Row, Col, Card, CardBody } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from "react"
+import MetaTags from "react-meta-tags"
+import { Row, Col, Card, CardBody } from "reactstrap"
+import { Link } from "react-router-dom"
 
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 // import postService
-import postService from '../../services/post.service';
+import postService from "../../services/post.service"
 
 // import images
-import user2 from "../../assets/images/users/user-2.jpg";
- 
+import user2 from "../../assets/images/users/user-2.jpg"
+
 const SinglePost = () => {
+  const [singlePost, setSinglePost] = useState([])
+
+  postService.fetchAllSponsoredPosts().then(response => {
+    setSinglePost(response.data.success.data)
+
+    console.log(singlePost)
+  })
+
   return (
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Directory | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>
+            Directory | Veltrix - Responsive Bootstrap 5 Admin Dashboard
+          </title>
         </MetaTags>
         <div className="container-fluid">
           {/* Render Breadcrumbs */}
-          <Breadcrumbs maintitle="Veltrix" title="Extra Pages" breadcrumbItem="Directory" />
+          <Breadcrumbs
+            maintitle="Veltrix"
+            title="Extra Pages"
+            breadcrumbItem="Directory"
+          />
           <Row>
             <Col md={12}>
               <Card className="directory-card">
@@ -69,7 +83,7 @@ const SinglePost = () => {
         </div>
       </div>
     </React.Fragment>
-  );
+  )
 }
 
-export default SinglePost;
+export default SinglePost

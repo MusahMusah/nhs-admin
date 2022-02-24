@@ -11,7 +11,6 @@ const fetchAllSponsoredPosts = async (payload) => {
 const postService = {
   fetchAllPosts,
   fetchAllSponsoredPosts,
-  fetchAllSponsoredPosts,
 }
 
 export default postService
