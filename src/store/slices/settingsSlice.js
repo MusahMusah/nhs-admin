@@ -40,8 +40,8 @@ const settingSlice = createSlice({
     })
 
     builder.addCase(getAllDashboardAnalytics.fulfilled, (state, action) => {
-      state.dashboardAnalytics = action.payload
-      state.loading = true
+      state.dashboardAnalytics = [action.payload]
+      state.loading = false
     })
 
     builder.addCase(getAllSettings.pending, (state, action) => {
