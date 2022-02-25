@@ -1,4 +1,5 @@
 import React from "react"
+import { Link, useParams } from "react-router-dom"
 import MetaTags from "react-meta-tags"
 import { MDBDataTable } from "mdbreact"
 import { Row, Col, Card, CardBody, CardText, CardImg, Button } from "reactstrap"
@@ -14,51 +15,54 @@ import { useDispatch, useSelector } from "react-redux"
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import "../../assets/scss/datatables.scss"
+import { post } from "helpers/api_helper"
 
 const SponsoredPosts = () => {
+  const [postLoading, setPostLoading] = useState(false)
   const [postsForRender, setPostsForRender] = useState([])
+  const { postId } = useParams()
   const [posts, setposts] = useState([])
   useLayoutEffect(() => {
     getAllposts()
   }, [])
 
   const getAllposts = () => {
-    postService.fetchAllSponsoredPosts().then(res => {
-      setposts(res.data.success.data)
+    setPostLoading(true)
+    postService.fetchAllSponsoredPosts(postId).then(res => {
+      setPostLoading(false)
+      setposts([res.data.success.data])
     })
   }
 
-  useLayoutEffect(() => {
-    let postsData = []
-    // add edit single posts for posts datatable
-    posts.map((post, index) => {
-      // post.user = (
-      //   <Row xs="auto">
-      //     <Col className="mx-auto">
-      //       <img
-      //         className="rounded-circle header-profile-user"
-      //         src={post.user.image}
-      //         alt="Header Avatar"
-      //       />
-      //       <CardText className="mt-1 mb-lg-0">
-      //         <a href="#">{post.user.name}</a>
-      //       </CardText>
-      //     </Col>
-      //   </Row>
-      // )
-      postsData.push(post)
-    })
-    setPostsForRender(postsData)
-  }, [posts])
+  console.log(posts)
+
+  // useLayoutEffect(() => {
+  //   let postsData = []
+  //   postLoading
+  //     ? // add edit single posts for posts datatable
+  //       posts.map((post, index) => {
+  //         // post.user = (
+  //         //   <Row xs="auto">
+  //         //     <Col className="mx-auto">
+  //         //       <img
+  //         //         className="rounded-circle header-profile-user"
+  //         //         src={post.user.image}
+  //         //         alt="Header Avatar"
+  //         //       />
+  //         //       <CardText className="mt-1 mb-lg-0">
+  //         //         <a href="#">{post.user.name}</a>
+  //         //       </CardText>
+  //         //     </Col>
+  //         //   </Row>
+  //         // )
+  //         postsData.push(post)
+  //       })
+  //     : null
+  //   setPostsForRender(postsData)
+  // }, [posts])
 
   const data = {
     columns: [
-      // {
-      //   label: "User",
-      //   field: "user",
-      //   sort: "asc",
-      //   width: 150,
-      // },
       {
         label: "Price",
         field: "price",
@@ -84,21 +88,52 @@ const SponsoredPosts = () => {
         width: 150,
       },
     ],
-    rows: postsForRender,
+    rows: posts,
   }
 
   return (
     <React.Fragment>
       <div className="page-content">
-        {/* <MetaTags>
-          <title>Data Tables | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
-        </MetaTags> */}
         <div className="container-fluid">
           <Breadcrumbs
             maintitle="Posts"
             title="All Posts"
             breadcrumbItem="Posts"
           />
+
+          {postLoading === false && posts.length > 0 ? (
+            <Row>
+              <Col md={6}>
+                <Card className="mini-stat bg-primary text-white">
+                  <CardBody>
+                    <div className="mb-4">
+                      <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
+                        Total Reach Out
+                      </h5>
+                      <h4 className="fw-medium font-size-24">
+                        {posts[0].info.reachOut}
+                      </h4>
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+
+              <Col md={6}>
+                <Card className="mini-stat bg-primary text-white">
+                  <CardBody>
+                    <div className="mb-4">
+                      <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
+                        Total Views
+                      </h5>
+                      <h4 className="fw-medium font-size-24">
+                        {posts[0].info.views}
+                      </h4>
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          ) : null}
 
           <Row>
             <Col className="col-12">

@@ -13,7 +13,7 @@ import Logout from "../pages/Authentication/Logout"
 // Users
 import Users from "../pages/Users"
 import Posts from "../pages/Posts"
-import SinglePost from "../pages/Posts/SinglePost"
+import SinglePost from "../pages/Posts/comments"
 import sponsoredPosts from "../pages/Posts/sponsored"
 import Directories from "../pages/Directories/index"
 import Golds from "../pages/Golds"
@@ -30,7 +30,7 @@ const userRoutes = [
   { path: "/users", component: Users },
   { path: "/posts", component: Posts },
   { path: "/posts/:uuid", component: SinglePost },  // posts/:uuid
-  { path: "/posts/sponsored", component: sponsoredPosts },
+  { path: "/posts/sponsored/:postId", component: sponsoredPosts },
   { path: "/directories", component: Directories },
   { path: "/golds", component: Golds },
   { path: "/wallets", component: Wallets },

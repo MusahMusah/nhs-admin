@@ -33,7 +33,8 @@ const Posts = () => {
     let postsData = []
     // add edit single posts for posts datatable
     posts.map((post, index) => {
-      const url = `/posts/${post.user.id}`
+      const sponsoredPostUrl = `/posts/sponsored/${post._id}`
+      const url = `/posts/${post._id}`
       post.user = (
         <Row xs="auto">
           <Col className="mx-auto">
@@ -48,7 +49,21 @@ const Posts = () => {
           </Col>
         </Row>
       )
-      post.action = (
+
+      post.likes = (
+        <CardText className="mt-1 mb-lg-0">{post.postLikes.length}</CardText>
+      )
+
+      post.postComments =
+        post.postComments.length > 0 ? (
+          <Link to={url}>
+            <Button color="primary" className="btn btn-primary waves-effect">
+              View
+            </Button>{" "}
+          </Link>
+        ) : null
+
+      post.sponsored = post.sponsored ? (
         <div className="d-flex justify-content-between">
           {/* <a href={`/posts/edit/${posts.id}`} className="mr-2">
               <i className="fa fa-edit text-info" />
@@ -56,13 +71,13 @@ const Posts = () => {
             <a href={`/posts/delete/${posts.id}`} className="mr-2">
               <i className="fa fa-trash text-danger" />
             </a> */}
-          <Link to={url}>
+          <Link to={sponsoredPostUrl}>
             <Button color="primary" className="btn btn-primary waves-effect">
               View
             </Button>{" "}
           </Link>
         </div>
-      )
+      ) : null
       postsData.push(post)
     })
     setPostsForRender(postsData)
@@ -89,14 +104,26 @@ const Posts = () => {
         width: 150,
       },
       {
-        label: "Created At",
-        field: "createdAt",
+        label: "Likes",
+        field: "likes",
         sort: "asc",
         width: 150,
       },
       {
-        label: "Action",
-        field: "action",
+        label: "Comments",
+        field: "postComments",
+        sort: "asc",
+        width: 150,
+      },
+      {
+        label: "Sponsored",
+        field: "sponsored",
+        sort: "asc",
+        width: 150,
+      },
+      {
+        label: "Created At",
+        field: "createdAt",
         sort: "asc",
         width: 150,
       },
