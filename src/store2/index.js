@@ -12,5 +12,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(sagaMiddleware))
 )
 sagaMiddleware.run(rootSaga)
-
+// "react-dom": "^17.0.2",
+// "react": "^17.0.2",
 export default store
