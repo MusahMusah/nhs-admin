@@ -26,7 +26,7 @@ const SinglePost = () => {
       <div className="page-content">
         <MetaTags>
           <title>
-            Directory | Veltrix - Responsive Bootstrap 5 Admin Dashboard
+            Directory | Northern Herbiscus
           </title>
         </MetaTags>
         <div className="container-fluid">

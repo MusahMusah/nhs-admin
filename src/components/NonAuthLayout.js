@@ -17,7 +17,7 @@ class NonAuthLayout extends Component {
   //   let currentage = this.capitalizeFirstLetter(this.props.location.pathname)
 
   //   document.title =
-  //     currentage + " | Veltrix - Responsive Bootstrap 5 Admin Dashboard"
+  //     currentage + " | Northern Herbiscus"
   // }
   render() {
     return <React.Fragment>{this.props.children}</React.Fragment>

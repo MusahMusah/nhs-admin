@@ -60,7 +60,7 @@
 //     <React.Fragment>
 //       <div className="page-content">
 //         <MetaTags>
-//           <title>Profile | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+//           <title>Profile | Northern Herbiscus</title>
 //         </MetaTags>
 //         <Container fluid>
 //           {/* Render Breadcrumb */}

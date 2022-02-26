@@ -79,7 +79,7 @@ const Settings = props => {
       <div className="page-content">
         <MetaTags>
           <title>
-            Profile | Veltrix - Responsive Bootstrap 5 Admin Dashboard
+            Profile | Northern Herbiscus
           </title>
         </MetaTags>
         {success_msg ? (

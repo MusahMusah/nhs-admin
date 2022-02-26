@@ -56,16 +56,13 @@ const ProfileMenu = props => {
           />
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
-          <DropdownItem tag="a" href="/profile">
+          {/* <DropdownItem tag="a" href="/profile">
             {" "}
             <i className="bx bx-user font-size-16 align-middle me-1" />
             {props.t("Profile")}{" "}
-          </DropdownItem>
-          <DropdownItem tag="a" href="auth-lock-screen">
-            <i className="bx bx-lock-open font-size-16 align-middle me-1" />
-            {props.t("Lock screen")}
-          </DropdownItem>
-          <div className="dropdown-divider" />
+          </DropdownItem> */}
+    
+          {/* <div className="dropdown-divider" /> */}
           <Link to="/logout" className="dropdown-item">
             <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" />
             <span>{props.t("Logout")}</span>

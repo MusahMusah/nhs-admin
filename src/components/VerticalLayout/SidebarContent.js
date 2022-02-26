@@ -95,14 +95,14 @@ const SidebarContent = props => {
             <li className="menu-title">{props.t("User Management")} </li>
             <li>
               <Link to="/dashboard" className="waves-effect">
-                <i className="ti-home"></i>
+                <i className="fas fa-home"></i>
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
 
             <li>
               <Link to="/users" className=" waves-effect">
-                <i className="ti-user"></i>
+                <i className="fas fa-users"></i>
                 <span>{props.t("Users")}</span>
               </Link>
             </li>
@@ -110,7 +110,7 @@ const SidebarContent = props => {
             <li className="menu-title">{props.t("Post Management")}</li>
             <li>
               <Link to="/posts">
-                <i className="ti-user"></i>
+                <i className="fab fa-rocketchat"></i>
                 <span>
                   {props.t("Posts")}
                 </span>
@@ -120,7 +120,7 @@ const SidebarContent = props => {
             <li className="menu-title">{props.t("Directories")}</li>
             <li>
               <Link to="/directories">
-                <i className="ti-user"></i>
+                <i className="fas fa-list-ul"></i>
                 <span>
                   {props.t("Directories")}
                 </span>
@@ -130,7 +130,7 @@ const SidebarContent = props => {
             <li className="menu-title">{props.t("Golds Management")}</li>
             <li>
               <Link to="/golds">
-                <i className="ti-user"></i>
+                <i className="fab fa-delicious"></i>
                 <span>
                   {props.t("Golds")}
                 </span>
@@ -140,7 +140,7 @@ const SidebarContent = props => {
             <li className="menu-title">{props.t("Wallet Management")}</li>
             <li>
               <Link to="/wallets">
-                <i className="ti-user"></i>
+                <i className="fas fa-wallet"></i>
                 <span>
                   {props.t("Wallets")}
                 </span>
@@ -150,7 +150,7 @@ const SidebarContent = props => {
             <li className="menu-title">{props.t("Settings")}</li>
             <li>
               <Link to="/settings" className=" waves-effect">
-                <i className="ti-user"></i>
+                <i className="ti-settings"></i>
                 <span>{props.t("General Settings")}</span>
               </Link>
             </li>

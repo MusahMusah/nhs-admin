@@ -39,7 +39,7 @@ const PagesTimeline = () => {
       <div className="page-content">
         <MetaTags>
           <title>
-            Timeline | Veltrix - Responsive Bootstrap 5 Admin Dashboard
+            Timeline | Northern Herbiscus
           </title>
         </MetaTags>
         <div className="container-fluid">

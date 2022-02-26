@@ -32,7 +32,7 @@ class Layout extends Component {
     let currentage = title.charAt(1).toUpperCase() + title.slice(2)
 
     document.title =
-      currentage + " | Veltrix - Responsive Bootstrap 5 Admin Dashboard"
+      currentage + " | Northern Herbiscus"
 
     this.props.changeLayout("horizontal")
     if (this.props.topbarTheme) {

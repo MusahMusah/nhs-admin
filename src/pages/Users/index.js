@@ -126,7 +126,7 @@ const Users = () => {
     <React.Fragment>
       <div className="page-content">
         {/* <MetaTags>
-          <title>Data Tables | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Data Tables | Northern Herbiscus</title>
         </MetaTags> */}
         <div className="container-fluid">
           <Breadcrumbs

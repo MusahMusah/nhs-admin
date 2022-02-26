@@ -8,14 +8,15 @@ export const loginUser = createAsyncThunk(
     try {
       return await AuthService.loginUser(payload)
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
-      thunkAPI.dispatch(setMessage(message))
-      return thunkAPI.rejectWithValue()
+      // const message =
+      //   (error.response &&
+      //     error.response.data &&
+      //     error.response.data.message) ||
+      //   error.message ||
+      //   error.toString()
+      // thunkAPI.dispatch(setMessage(message))
+      return thunkAPI.rejectWithValue(error?.response.data.error)
+      // return error?.response
     }
   }
 )

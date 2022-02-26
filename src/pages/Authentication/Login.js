@@ -1,7 +1,6 @@
 import PropTypes from "prop-types"
 import MetaTags from "react-meta-tags"
-import React from "react"
-
+import React, { useState } from "react"
 import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
 
 // Redux
@@ -22,6 +21,7 @@ const Login = props => {
   // initialise the dispatcher
   const dispatch = useDispatch()
   const history = useHistory()
+  const [errors, setErrors] = useState("")
   // handleValidSubmit
   const handleValidSubmit = (event, values) => {
     const payload = {
@@ -40,21 +40,16 @@ const Login = props => {
       // window.location.reload();
       window.location.href = "/dashboard"
     })
-    .catch(() => {
-      // setLoading(false);
-    });
+    .catch((e) => {
+      setErrors(e.message)
+    })
   }
 
   return (
     <React.Fragment>
       <MetaTags>
-        <title>Login | Northern Behiscus</title>
+        <title>Login | Northern Herbiscus</title>
       </MetaTags>
-      <div className="home-btn d-none d-sm-block">
-        <Link to="/" className="text-dark">
-          <i className="fas fa-home h2" />
-        </Link>
-      </div>
       <div className="account-pages my-5 pt-sm-5">
         <Container>
           <Row className="justify-content-center">
@@ -64,10 +59,10 @@ const Login = props => {
                   <div className="text-primary text-center p-4">
                     <h5 className="text-white font-size-20">Welcome Back !</h5>
                     <p className="text-white-50">
-                      Sign in to continue to Veltrix.
+                      Sign in to continue to Northern Herbiscus Admin Portal.
                     </p>
                     <Link to="/" className="logo logo-admin">
-                      <img src={logoSm} height="24" alt="logo" />
+                      <img src={logoSm} style={{ height: "60px" }} alt="logo" />
                     </Link>
                   </div>
                 </div>
@@ -80,15 +75,14 @@ const Login = props => {
                         handleValidSubmit(e, v)
                       }}
                     >
-                      {props.error && typeof props.error === "string" ? (
-                        <Alert color="danger">{props.error}</Alert>
+                      {errors ? (
+                        <Alert color="danger">{errors}</Alert>
                       ) : null}
 
                       <div className="mb-3">
                         <AvField
                           name="email"
                           label="Email"
-                          value="admin@themesbrand.com"
                           className="form-control"
                           placeholder="Enter email"
                           type="email"
@@ -100,7 +94,6 @@ const Login = props => {
                         <AvField
                           name="password"
                           label="Password"
-                          value="123456"
                           type="password"
                           required
                           placeholder="Enter Password"
@@ -137,13 +130,13 @@ const Login = props => {
                 </CardBody>
               </Card>
               <div className="text-center">
-                <p>
+                {/* <p>
                   Don&#39;t have an account ?{" "}
                   <Link to="register" className="fw-medium text-primary">
                     {" "}
                     Signup now{" "}
                   </Link>{" "}
-                </p>
+                </p> */}
                 <p>
                   © {new Date().getFullYear()} Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Payluk
