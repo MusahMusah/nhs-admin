@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import MetaTags from "react-meta-tags"
-import React, { useState } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
 
 // Redux
@@ -20,7 +20,7 @@ import logoSm from "../../assets/images/logo-sm.png"
 const Login = props => {
   // initialise the dispatcher
   const dispatch = useDispatch()
-  const { isLoggedIn } = useSelector((state) => state.auth);
+  const { isLoggedIn } = useSelector(state => state.auth)
   const history = useHistory()
   const [errors, setErrors] = useState("")
   // handleValidSubmit
@@ -34,20 +34,16 @@ const Login = props => {
       isAdmin: 1,
     }
     dispatch(loginUser(payload))
-    .unwrap()
-    .then(() => {
-      // props.history.push("/dashboard");
-      // history.push("/dashboard")
-      // window.location.reload();
-      window.location.href = "/dashboard"
-    })
-    .catch((e) => {
-      setErrors(e.message)
-    })
-  }
-
-  if (isLoggedIn) {
-    return <Redirect to="/dashboard" />;
+      .unwrap()
+      .then(() => {
+        // props.history.push("/dashboard");
+        // history.push("/dashboard")
+        // window.location.reload();
+        window.location.href = "/dashboard"
+      })
+      .catch(e => {
+        setErrors(e.message)
+      })
   }
 
   return (
@@ -80,9 +76,7 @@ const Login = props => {
                         handleValidSubmit(e, v)
                       }}
                     >
-                      {errors ? (
-                        <Alert color="danger">{errors}</Alert>
-                      ) : null}
+                      {errors ? <Alert color="danger">{errors}</Alert> : null}
 
                       <div className="mb-3">
                         <AvField

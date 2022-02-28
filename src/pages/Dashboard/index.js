@@ -28,7 +28,7 @@ const Dashboard = () => {
   useLayoutEffect(() => {
     dispatch(getAllDashboardAnalytics())
   }, [])
-  console.log(dashboardAnalytics)
+
   return (
     <React.Fragment>
       <div className="page-content">
