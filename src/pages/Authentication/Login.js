@@ -6,7 +6,7 @@ import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
 // Redux
 import { connect } from "react-redux"
 import { useDispatch, useSelector } from "react-redux"
-import { withRouter, Link, useHistory } from "react-router-dom"
+import { withRouter, Link, useHistory, Redirect } from "react-router-dom"
 
 // slice
 import { loginUser } from "../../store/slices/authSlice"
@@ -20,6 +20,7 @@ import logoSm from "../../assets/images/logo-sm.png"
 const Login = props => {
   // initialise the dispatcher
   const dispatch = useDispatch()
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const history = useHistory()
   const [errors, setErrors] = useState("")
   // handleValidSubmit
@@ -43,6 +44,10 @@ const Login = props => {
     .catch((e) => {
       setErrors(e.message)
     })
+  }
+
+  if (isLoggedIn) {
+    return <Redirect to="/dashboard" />;
   }
 
   return (
