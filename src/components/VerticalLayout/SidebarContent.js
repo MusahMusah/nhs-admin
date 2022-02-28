@@ -155,13 +155,27 @@ const SidebarContent = props => {
               </Link>
             </li>
 
-            {/* <li className="menu-title">{props.t("Reports")}</li>
+            <li className="menu-title">{props.t("System Reports")}</li>
             <li>
-              <Link to="/" className=" waves-effect">
-                <i className="ti-user"></i>
-                <span>{props.t("All Reports")}</span>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="ti-package"></i>
+                <span>{props.t("Reports")}</span>
               </Link>
-            </li> */}
+              <ul className="sub-menu" aria-expanded="false">
+                <li>
+                  <Link to="/reports/users">{props.t("Users Report")}</Link>
+                </li>
+                <li>
+                  <Link to="/reports/post">{props.t("Posts Report")}</Link>
+                </li>
+                <li>
+                  <Link to="/reports/directory">{props.t("Directory Report")}</Link>
+                </li>
+                <li>
+                  <Link to="/reports/directory-ontop">{props.t("Directory OnTop Report")}</Link>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </SimpleBar>

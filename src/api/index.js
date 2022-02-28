@@ -15,4 +15,20 @@ export const apiClient = axios.create({
   headers: authorizationHeader(),
 })
 
+apiClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  function (error) {
+    if (
+      error.response &&
+      [401, 419].includes(error.response.status) &&
+      localStorage.getItem("user")
+    ) {
+      localStorage.removeItem("user")
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default apiClient

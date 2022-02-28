@@ -20,6 +20,12 @@ import Golds from "../pages/Golds"
 import Wallets from "../pages/Wallets"
 import Settings from "../pages/Settings"
 
+// Reports
+import UsersReport from "../pages/Reports/UsersReport"
+import PostReport from "../pages/Reports/PostReport"
+import DirectoryReport from "../pages/Reports/DirectoryReport"
+import DirectoryOnTopReport from "../pages/Reports/DirectoryOnTopReport"
+
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 
@@ -37,6 +43,12 @@ const userRoutes = [
 
   // settings
   { path: "/settings", component: Settings },
+
+  // Reports
+  { path: "/reports/users", component: UsersReport },
+  { path: "/reports/post", component: PostReport },
+  { path: "/reports/directory", component: DirectoryReport },
+  { path: "/reports/directory-ontop", component: DirectoryOnTopReport },
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },

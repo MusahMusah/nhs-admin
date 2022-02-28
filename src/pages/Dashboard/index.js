@@ -17,12 +17,6 @@ import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { getAllDashboardAnalytics } from "../../store/slices/settingsSlice"
 
-// import images
-import servicesIcon1 from "../../assets/images/services-icon/01.png"
-import servicesIcon2 from "../../assets/images/services-icon/02.png"
-import servicesIcon3 from "../../assets/images/services-icon/03.png"
-import servicesIcon4 from "../../assets/images/services-icon/04.png"
-
 const Dashboard = () => {
   const dispatch = useDispatch()
   const { dashboardAnalytics, loading } = useSelector(state => state.setting)
